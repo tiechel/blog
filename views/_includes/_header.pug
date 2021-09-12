@@ -1,0 +1,34 @@
+//- Header
+nav.navbar.is-light.has-shadow.is-spaced
+  .container
+    .navbar-brand
+      a.navbar-item(href="/") #{site.name}
+      span.navbar-burger(data-target="navbarMenu")
+        span(aria-hidden="true")
+        span(aria-hidden="true")
+        span(aria-hidden="true")
+
+    #navbarMenu.navbar-menu
+      .navbar-end
+        .navbar-item
+          .control.has-icons.left
+            input.input.is-rouded(type="text" placeholder="Search")
+            span.icon.is-left
+              i.fa.fa-search
+        .navbar-item
+
+append script
+  script.
+    document.addEventListener('DOMContentLoaded', function () {
+      var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+      if ($navbarBurgers.length > 0) {
+        $navbarBurgers.forEach(function(el) {
+          var target = el.dataset.target;
+          var $target = document.getElementById(target);
+          el.addEventListener('click', function() {
+            this.classList.toggle('is-active');
+            $target.classList.toggle('is-active');
+          })
+        })
+      } 
+    });

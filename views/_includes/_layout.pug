@@ -1,0 +1,23 @@
+block variables
+  - var site = {};
+  - site.pageLang = "ja";
+  - site.name = "ちぇちぇのブログ";
+  - site.pageTitle = "";
+
+doctype html
+html(lang=site.pageLang)
+  head
+    include /_includes/_meta
+
+  body
+    // header
+    include /_includes/_header
+
+    // content
+    block content
+
+    // footer
+    include /_includes/_footer
+
+    // script
+    include /_includes/_script

@@ -1,0 +1,14 @@
+{
+    "editor.formatOnSave": true,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "[markdown]": {
+        "editor.wordWrap": "on",
+        "editor.quickSuggestions": false,
+        "editor.formatOnSave": false
+    },
+    "files.associations": {
+        "*.gitignore": "gitignore",
+    }
+}
