@@ -1,4 +1,5 @@
 const createError = require("http-errors");
+const compression = require("compression");
 const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
@@ -12,6 +13,7 @@ app.set("view engine", "pug");
 app.locals.basedir = app.get("views");
 
 app.use(logger("dev"));
+app.use(compression());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
