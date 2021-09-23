@@ -83,3 +83,7 @@ function onListening() {
   var addr = server.address();
   debug("Listening on ", addr);
 }
+
+process.on("SIGINT", () => {
+  // close connections for graceful shutdown.
+});
