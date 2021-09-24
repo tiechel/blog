@@ -1,17 +1,17 @@
 module.exports = {
   development: {
-    username: process.env.DB_USERNAME || "blog",
-    password: process.env.DB_PASSWORD || "password",
-    database: process.env.DB_DATABASE || "postgres",
-    host: process.env.DB_HOST || "localhost",
-    dialect: process.env.DB_DIALECT || "postgres",
+    username: "blog",
+    password: "password",
+    database: "postgres",
+    host: "localhost",
+    dialect: "postgres",
   },
   test: {
-    username: process.env.DB_USERNAME || "blog_test",
-    password: process.env.DB_PASSWORD || "password",
-    database: process.env.DB_DATABASE || "postgres",
-    host: process.env.DB_HOST || "localhost",
-    dialect: process.env.DB_DIALECT || "postgres",
+    username: "blog_test",
+    password: "password",
+    database: "postgres",
+    host: "localhost",
+    dialect: "postgres",
   },
   production: {
     username: process.env.DB_USERNAME || "root",
