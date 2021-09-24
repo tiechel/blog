@@ -1,9 +1,17 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
+const models = require("../../models");
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("page/blog-top", { title: "Express" });
+  (async () => {
+    const posts = await models.Post.findAll({ limit: 10 });
+
+    return res.render("page/blog-top", {
+      title: "",
+      posts,
+    });
+  })().catch(next);
 });
 
 module.exports = router;
