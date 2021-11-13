@@ -5,8 +5,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "DEBUG=blog:* nodemon ./bin/www",
-    "db": "sequelize-cli --config=./config/database.js",
+    "dev": "nodemon ./bin/www",
     "dev-start": "pm2 start ecosystem.config.js --update-env",
     "dev-stop": "pm2 stop ecosystem.config.js",
     "service-start": "pm2 start ecosystem.config.js --env=production --update-env",

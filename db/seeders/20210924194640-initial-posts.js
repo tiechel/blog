@@ -1,6 +1,6 @@
 "use strict";
 
-const models = require("../models");
+const Post = require("../models/Post");
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -18,7 +18,7 @@ module.exports = {
     ];
     await queryInterface.sequelize.transaction(async (transaction) => {
       for (const post of posts) {
-        const p = await models.Post.create(post, { transaction });
+        const p = await Post.create(post, { transaction });
         p.createdAt = post.createdAt;
         await p.save({ transaction });
       }
