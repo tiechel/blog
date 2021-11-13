@@ -9,7 +9,7 @@ block content
       .container
         .content.is-midium
           h2.subtitle.is-4 #{datefns.format(post.createdAt, 'yyyy年MM月dd日')}
-          h1.subject #{post.subject}
+          h1.subject #{post.id}: #{post.subject}
 
           .body
             each line in post.body.split("\n")

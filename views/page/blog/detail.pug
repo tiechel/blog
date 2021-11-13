@@ -1,0 +1,15 @@
+extends /_includes/_layout
+
+append variables
+  - site.pageTitle = title
+
+block content
+  section.section
+    .container
+      .content.is-midium
+        h2.subtitle.is-4 #{datefns.format(post.createdAt, 'yyyy年MM月dd日')}
+        h1.subject #{post.subject}
+
+        .body
+          each line in post.body.split("\n")
+            | #{line}
