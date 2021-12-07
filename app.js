@@ -5,6 +5,8 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const datefns = require("date-fns");
+const { errorHandler, notFound } = require("./middleware/errorHandler");
+
 const app = express();
 
 // view engine setup
@@ -18,26 +20,15 @@ app.use(compression());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(require("./middleware/session"));
 app.use(express.static(path.join(__dirname, "public")));
 
 // routes
 app.use("/", require("./routes/blog"));
 app.use("/", require("./routes/blog-admin"));
 
-// catch 404 and forward to error handler
-app.use((req, res, next) => {
-  next(createError(404));
-});
-
-// error handler
-app.use((err, req, res, next) => {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get("env") === "development" ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render("error/500");
-});
+// Error Handler
+app.use(notFound);
+app.use(errorHandler);
 
 module.exports = app;
